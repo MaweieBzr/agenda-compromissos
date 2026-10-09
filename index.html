@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="Organize seus compromissos em uma agenda simples e prática.">
+  <title>Agenda Clara — seus compromissos em ordem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Agenda Clara, início"><span class="brand-mark">a.</span><span>agenda<span class="brand-light">clara</span></span></a>
+      <div class="side-label">ESPAÇO PESSOAL</div>
+      <nav class="side-nav">
+        <a class="nav-link active" href="#inicio"><span class="nav-icon">▦</span>Minha agenda</a>
+        <a class="nav-link" href="#novo-compromisso"><span class="nav-icon">＋</span>Novo compromisso</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="mini-calendar-icon">✳</div><p>Um dia por vez.</p><span>Organize seu tempo.</span></div>
+      <div class="sidebar-foot"><span class="status-dot"></span> Seus dados ficam neste dispositivo</div>
+    </aside>
+
+    <main class="main-content" id="inicio">
+      <header class="topbar"><div class="breadcrumb">ESPAÇO PESSOAL <span>/</span> <strong>MINHA AGENDA</strong></div><div class="topbar-actions"><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo noturno" title="Ativar modo noturno"><span id="theme-icon" aria-hidden="true">☾</span><span class="theme-toggle-label">Modo noturno</span></button><div class="today-chip"><span class="today-dot"></span><span id="today-label">Hoje</span></div></div></header>
+      <section class="welcome"><div><p class="eyebrow" id="greeting">SEU TEMPO, DO SEU JEITO</p><h1>Uma coisa de cada vez<span class="title-period">.</span></h1><p class="welcome-subtitle">Seus compromissos, organizados para você respirar melhor.</p></div><div class="date-card"><span class="date-card-label">HOJE É</span><strong id="date-day">--</strong><span id="date-month">---</span></div></section>
+
+      <section class="stats-grid" aria-label="Resumo da agenda">
+        <article class="stat-card stat-primary"><div class="stat-top"><span>NA AGENDA</span><span class="stat-symbol">▤</span></div><strong id="total-count">0</strong><p>compromissos no total</p></article>
+        <article class="stat-card"><div class="stat-top"><span>HOJE</span><span class="stat-symbol soft">◷</span></div><strong id="today-count">0</strong><p>para hoje</p></article>
+        <article class="stat-card"><div class="stat-top"><span>PRÓXIMO</span><span class="stat-symbol soft">↗</span></div><strong class="next-stat" id="next-event">Tudo livre</strong><p id="next-detail">Aproveite seu tempo</p></article>
+      </section>
+
+      <section class="agenda-panel" aria-labelledby="agenda-heading">
+        <div class="section-heading"><div><p class="eyebrow">SEUS PLANOS</p><h2 id="agenda-heading">Próximos compromissos</h2></div><span class="count-pill" id="visible-count">0 itens</span></div>
+        <div class="toolbar"><label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="search-input" placeholder="Buscar compromisso..." aria-label="Buscar compromisso"></label><label class="filter-wrap"><span class="filter-icon">☷</span><select id="filter-select" aria-label="Filtrar compromissos"><option value="all">Todos</option><option value="today">Hoje</option><option value="upcoming">Próximos</option></select><span class="select-chevron">⌄</span></label></div>
+        <div class="agenda-list" id="appointments-list" aria-live="polite"></div>
+      </section>
+
+      <section class="form-panel" id="novo-compromisso" aria-labelledby="form-heading">
+        <div class="form-intro"><span class="form-icon">＋</span><div><p class="eyebrow">UM NOVO PLANO</p><h2 id="form-heading">Adicionar compromisso</h2><p>Preencha os detalhes para guardar na sua agenda.</p></div></div>
+        <form id="appointment-form">
+          <div class="field field-wide"><label for="description">O que você tem marcado?</label><input id="description" name="description" type="text" maxlength="80" placeholder="Ex.: Consulta com a dentista" required></div>
+          <div class="field"><label for="date">Data</label><input id="date" name="date" type="date" required></div>
+          <div class="field"><label for="time">Horário</label><input id="time" name="time" type="time" required></div>
+          <div class="field field-wide"><label for="details">Observação <span>(opcional)</span></label><input id="details" name="details" type="text" maxlength="120" placeholder="Local, preparo ou qualquer lembrete"></div>
+          <div class="form-actions"><p><span class="privacy-icon">⌑</span> Salvo somente neste dispositivo</p><button class="submit-button" type="submit"><span>＋</span> Salvar compromisso</button></div>
+        </form>
+      </section>
+      <footer class="page-footer"><span>DEIXE TUDO EM DIA, E ORGANIZADO!</span><span>AGENDA CLARA <b>✳</b></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
